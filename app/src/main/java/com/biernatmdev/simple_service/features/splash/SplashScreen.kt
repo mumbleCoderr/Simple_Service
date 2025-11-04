@@ -5,22 +5,46 @@ import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Icon
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.scale
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.times
+import com.biernatmdev.simple_service.R
+import com.biernatmdev.simple_service.ui.theme.ColorBtnText
+import com.biernatmdev.simple_service.ui.theme.ColorPrimary
 import com.biernatmdev.simple_service.ui.theme.ColorPrimaryText
-import com.biernatmdev.simple_service.ui.theme.ColorSecondary
 import com.biernatmdev.simple_service.ui.theme.ColorSecondaryText
 import com.biernatmdev.simple_service.ui.theme.ColorSurface
+import com.biernatmdev.simple_service.ui.theme.FontSize.EXTRA_MEDIUM
+import com.biernatmdev.simple_service.ui.theme.FontSize.LARGE
+import com.biernatmdev.simple_service.ui.theme.Resources.Icon.Handshake
+import com.biernatmdev.simple_service.ui.theme.Resources.Icon.LogIn
+import com.biernatmdev.simple_service.ui.theme.momoFont
 
 @Composable
+@Preview(showBackground = true)
 fun SplashScreen() {
     val scale = remember { Animatable(0f) }
     LaunchedEffect(
@@ -46,9 +70,86 @@ fun SplashScreen() {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text(
-            text = "SPLASH SCREEN",
-            color = ColorPrimaryText
+        Icon(
+            imageVector = Handshake,
+            contentDescription = "Handshake",
+            modifier = Modifier
+                .scale(scale.value)
+                .size(220.dp),
+            tint = ColorPrimary
         )
+        Spacer(Modifier.height(16.dp))
+        Text(
+            text = stringResource(R.string.splash_header),
+            color = ColorPrimaryText,
+            fontFamily = momoFont(),
+            fontSize = LARGE,
+            fontWeight = FontWeight.Bold
+        )
+        Spacer(Modifier.height(22.dp))
+        Text(
+            text = stringResource(R.string.splash_subtext),
+            color = ColorSecondaryText,
+            fontFamily = momoFont(),
+            fontSize = LARGE,
+            fontWeight = FontWeight.Bold,
+            textAlign = TextAlign.Center,
+            lineHeight = 1.2 * LARGE
+        )
+        Spacer(Modifier.height(100.dp))
+        SplashButton(onClick = {})
     }
 }
+
+@Composable
+fun SplashButton(
+    modifier: Modifier = Modifier,
+    backgroundColor: Color = ColorPrimary,
+    onClick: () -> Unit
+) {
+    Surface(
+        modifier = Modifier
+            .fillMaxWidth(),
+        shape = RoundedCornerShape(22.dp),
+        color = backgroundColor
+    ) {
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp, 16.dp, 32.dp, 16.dp),
+            contentAlignment = Alignment.Center
+        ) {
+            Text(
+                text = stringResource(R.string.splash_btn_text),
+                color = ColorBtnText,
+                fontFamily = momoFont(),
+                fontSize = EXTRA_MEDIUM,
+                fontWeight = FontWeight.Bold,
+                textAlign = TextAlign.Center
+            )
+            Spacer(Modifier.width(24.dp))
+            Icon(
+                imageVector = LogIn,
+                contentDescription = "Log in",
+                tint = ColorBtnText,
+                modifier = Modifier
+                    .size(32.dp)
+                    .align(Alignment.CenterEnd)
+            )
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
