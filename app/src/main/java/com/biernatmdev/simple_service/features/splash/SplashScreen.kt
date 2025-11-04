@@ -39,6 +39,7 @@ import com.biernatmdev.simple_service.ui.theme.ColorSecondaryText
 import com.biernatmdev.simple_service.ui.theme.ColorSurface
 import com.biernatmdev.simple_service.ui.theme.FontSize.EXTRA_MEDIUM
 import com.biernatmdev.simple_service.ui.theme.FontSize.LARGE
+import com.biernatmdev.simple_service.ui.theme.FontSize.SEMI_LARGE
 import com.biernatmdev.simple_service.ui.theme.Resources.Icon.Handshake
 import com.biernatmdev.simple_service.ui.theme.Resources.Icon.LogIn
 import com.biernatmdev.simple_service.ui.theme.momoFont
@@ -123,8 +124,8 @@ fun SplashButton(
                 text = stringResource(R.string.splash_btn_text),
                 color = ColorBtnText,
                 fontFamily = momoFont(),
-                fontSize = EXTRA_MEDIUM,
-                fontWeight = FontWeight.Bold,
+                fontSize = SEMI_LARGE,
+                fontWeight = FontWeight.Normal,
                 textAlign = TextAlign.Center
             )
             Spacer(Modifier.width(24.dp))
