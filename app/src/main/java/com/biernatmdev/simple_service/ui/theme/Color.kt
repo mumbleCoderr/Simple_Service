@@ -19,6 +19,7 @@ val LightGray = Color(0xFF5D716E)
 val LightCreamy = Color(0xFFD4D4D4)
 val DarkCreamy = Color(0xFF888888)
 
+
 // ==================== Color Surfaces ===================== //
 val ColorSurface = Black
 val ColorPrimary = Yellow
@@ -28,3 +29,4 @@ val ColorTertiary = LightGray
 // ==================== Color Text ========================== //
 val ColorPrimaryText = LightCreamy
 val ColorSecondaryText = DarkCreamy
+val ColorBtnText = Black
