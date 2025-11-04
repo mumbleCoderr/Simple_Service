@@ -6,6 +6,7 @@ import androidx.compose.material.icons.filled.Campaign
 import androidx.compose.material.icons.filled.Construction
 import androidx.compose.material.icons.filled.Handshake
 import androidx.compose.material.icons.filled.Sell
+import com.biernatmdev.simple_service.R
 
 object Resources {
 
@@ -18,6 +19,8 @@ object Resources {
     }
 
     object Image {
-
+        val Logo_v1 = R.drawable.simple_service_logo_v1
+        val Logo_v2 = R.drawable.simple_service_logo_v2
+        val Logo_v1_dark = R.drawable.simple_service_logo_v1_dark
     }
 }

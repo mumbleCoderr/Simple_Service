@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Simple_Service</string>
+    <string name="splash_header">Looking for help?</string>
+    <string name="splash_subtext">We\'ve got everything you need!</string>
 </resources>
