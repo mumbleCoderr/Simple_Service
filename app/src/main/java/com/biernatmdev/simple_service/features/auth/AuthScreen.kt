@@ -1,5 +1,8 @@
 package com.biernatmdev.simple_service.features.auth
 
+import android.view.animation.OvershootInterpolator
+import androidx.compose.animation.core.Animatable
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -8,11 +11,14 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
@@ -46,7 +52,24 @@ import com.biernatmdev.simple_service.ui.theme.momoFont
 @Composable
 fun AuthScreen(){
 
-    val iconSize = 120.dp
+    val iconSize = 180.dp
+
+    val scales = List(4) { remember { Animatable(0f) } }
+    LaunchedEffect(true) {
+        scales.forEachIndexed { index, anim ->
+            anim.animateTo(
+                targetValue = 0.7f,
+                animationSpec = tween(
+                    durationMillis = 600,
+                    delayMillis = 100,
+                    easing = {
+                        OvershootInterpolator(7f)
+                            .getInterpolation(it)
+                    }
+                )
+            )
+        }
+    }
 
     Column(
         modifier = Modifier
@@ -60,34 +83,36 @@ fun AuthScreen(){
             modifier = Modifier
                 .fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(36.dp, Alignment.CenterHorizontally)
+            horizontalArrangement = Arrangement.Center
         ){
             Icon(
                 imageVector = Construction,
                 contentDescription = "Construction",
                 modifier = Modifier
+                    .scale(scales[0].value)
                     .size(iconSize),
                 tint = ColorPrimary
             )
-            Icon(
-                imageVector = Campaign,
-                contentDescription = "Campaign",
-                modifier = Modifier
-                    .size(iconSize),
-                tint = ColorPrimary
-            )
-        }
-        Spacer(Modifier.height(36.dp))
-        Row(
-            modifier = Modifier
-                .fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(36.dp, Alignment.CenterHorizontally)
-        ){
             Icon(
                 imageVector = Sell,
                 contentDescription = "Sell",
                 modifier = Modifier
+                    .scale(scales[1].value)
+                    .size(iconSize),
+                tint = ColorPrimary
+            )
+        }
+        Row(
+            modifier = Modifier
+                .fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Center
+        ){
+            Icon(
+                imageVector = Campaign,
+                contentDescription = "Campaign",
+                modifier = Modifier
+                    .scale(scales[2].value)
                     .size(iconSize),
                 tint = ColorPrimary
             )
@@ -95,6 +120,8 @@ fun AuthScreen(){
                 painter = painterResource(Approval),
                 contentDescription = "Approval",
                 modifier = Modifier
+                    .offset(y = (-16).dp)
+                    .scale(scales[3].value)
                     .size(iconSize),
                 tint = ColorPrimary
             )
