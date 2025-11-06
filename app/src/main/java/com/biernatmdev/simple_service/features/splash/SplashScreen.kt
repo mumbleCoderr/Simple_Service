@@ -27,6 +27,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.times
 import com.biernatmdev.simple_service.R
 import com.biernatmdev.simple_service.features.components.Button
+import com.biernatmdev.simple_service.features.components.rememberOvershootScale
 import com.biernatmdev.simple_service.ui.theme.ColorPrimary
 import com.biernatmdev.simple_service.ui.theme.ColorPrimaryText
 import com.biernatmdev.simple_service.ui.theme.ColorSecondaryText
@@ -39,23 +40,8 @@ import com.biernatmdev.simple_service.ui.theme.momoFont
 @Composable
 @Preview(showBackground = true)
 fun SplashScreen() {
-    val scale = remember { Animatable(0f) }
+    val scale = rememberOvershootScale()
 
-    LaunchedEffect(
-        key1 = true,
-        block = {
-            scale.animateTo(
-                targetValue = 0.7f,
-                animationSpec = tween(
-                    durationMillis = 600,
-                    easing = {
-                        OvershootInterpolator(7f)
-                            .getInterpolation(it)
-                    }
-                )
-            )
-        }
-    )
     Column(
         modifier = Modifier
             .fillMaxSize()

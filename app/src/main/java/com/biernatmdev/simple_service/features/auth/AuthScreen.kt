@@ -29,6 +29,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.biernatmdev.simple_service.R
 import com.biernatmdev.simple_service.features.components.Button
+import com.biernatmdev.simple_service.features.components.rememberOvershootScales
 import com.biernatmdev.simple_service.ui.theme.ColorBtnText
 import com.biernatmdev.simple_service.ui.theme.ColorPrimary
 import com.biernatmdev.simple_service.ui.theme.ColorPrimaryText
@@ -53,23 +54,7 @@ import com.biernatmdev.simple_service.ui.theme.momoFont
 fun AuthScreen(){
 
     val iconSize = 180.dp
-
-    val scales = List(4) { remember { Animatable(0f) } }
-    LaunchedEffect(true) {
-        scales.forEachIndexed { index, anim ->
-            anim.animateTo(
-                targetValue = 0.7f,
-                animationSpec = tween(
-                    durationMillis = 600,
-                    delayMillis = 100,
-                    easing = {
-                        OvershootInterpolator(7f)
-                            .getInterpolation(it)
-                    }
-                )
-            )
-        }
-    }
+    val scales = rememberOvershootScales(count = 4)
 
     Column(
         modifier = Modifier
