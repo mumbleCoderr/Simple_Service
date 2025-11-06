@@ -5,18 +5,13 @@ import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -24,8 +19,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -34,13 +27,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.times
 import com.biernatmdev.simple_service.R
 import com.biernatmdev.simple_service.features.components.Button
-import com.biernatmdev.simple_service.ui.theme.ColorBtnText
 import com.biernatmdev.simple_service.ui.theme.ColorPrimary
 import com.biernatmdev.simple_service.ui.theme.ColorPrimaryText
 import com.biernatmdev.simple_service.ui.theme.ColorSecondaryText
 import com.biernatmdev.simple_service.ui.theme.ColorSurface
 import com.biernatmdev.simple_service.ui.theme.FontSize.LARGE
-import com.biernatmdev.simple_service.ui.theme.FontSize.SEMI_LARGE
 import com.biernatmdev.simple_service.ui.theme.Resources.Icon.Handshake
 import com.biernatmdev.simple_service.ui.theme.Resources.Icon.LogIn
 import com.biernatmdev.simple_service.ui.theme.momoFont
@@ -103,7 +94,7 @@ fun SplashScreen() {
         Button(
             onClick = {},
             imageVector = LogIn,
-            btnText = stringResource(R.string.splash_btn_text)
+            text = stringResource(R.string.splash_btn_text)
         )
     }
 }

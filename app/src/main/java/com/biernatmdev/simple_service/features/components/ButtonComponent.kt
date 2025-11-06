@@ -16,11 +16,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
-import com.biernatmdev.simple_service.R
 import com.biernatmdev.simple_service.ui.theme.ColorBtnText
 import com.biernatmdev.simple_service.ui.theme.ColorPrimary
 import com.biernatmdev.simple_service.ui.theme.FontSize.SEMI_LARGE
@@ -32,13 +33,21 @@ fun Button(
     backgroundColor: Color = ColorPrimary,
     imageVector: ImageVector? = null,
     painterResource: Int? = null,
-    btnText: String,
-    onClick: () -> Unit
+    iconSize: Dp = 32.dp,
+    iconTint: Color = ColorBtnText,
+    text: String,
+    textColor: Color = ColorBtnText,
+    textFont: FontFamily = momoFont(),
+    textFontSize: TextUnit = SEMI_LARGE,
+    textFontWeight: FontWeight = FontWeight.Normal,
+    spacerWidth: Dp = 0.dp,
+    roundedCornerShapeValue: Dp = 22.dp,
+    onClick: () -> Unit,
 ) {
     Surface(
         modifier = Modifier
             .fillMaxWidth(),
-        shape = RoundedCornerShape(22.dp),
+        shape = RoundedCornerShape(roundedCornerShapeValue),
         color = backgroundColor
     ) {
         Box(
@@ -48,22 +57,22 @@ fun Button(
             contentAlignment = Alignment.Center
         ) {
             Text(
-                text = btnText,
-                color = ColorBtnText,
-                fontFamily = momoFont(),
-                fontSize = SEMI_LARGE,
-                fontWeight = FontWeight.Normal,
+                text = text,
+                color = textColor,
+                fontFamily = textFont,
+                fontSize = textFontSize,
+                fontWeight = textFontWeight,
                 textAlign = TextAlign.Center
             )
-            Spacer(Modifier.width(24.dp))
+            Spacer(Modifier.width(spacerWidth))
             when {
                 imageVector != null -> {
                     Icon(
                         imageVector = imageVector,
                         contentDescription = imageVector.name,
-                        tint = ColorBtnText,
+                        tint = iconTint,
                         modifier = Modifier
-                            .size(32.dp)
+                            .size(iconSize)
                             .align(Alignment.CenterEnd)
                     )
                 }
@@ -72,9 +81,9 @@ fun Button(
                     Icon(
                         painter = painterResource(painterResource),
                         contentDescription = painterResource.toString(),
-                        tint = ColorBtnText,
+                        tint = iconTint,
                         modifier = Modifier
-                            .size(32.dp)
+                            .size(iconSize)
                             .align(Alignment.CenterEnd)
                     )
                 }
