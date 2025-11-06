@@ -40,7 +40,7 @@ fun Button(
     textFont: FontFamily = momoFont(),
     textFontSize: TextUnit = SEMI_LARGE,
     textFontWeight: FontWeight = FontWeight.Normal,
-    spacerWidth: Dp = 0.dp,
+    spacerWidth: Dp = 0.dp, //TODO FIX/CHANGE
     roundedCornerShapeValue: Dp = 22.dp,
     onClick: () -> Unit,
 ) {
