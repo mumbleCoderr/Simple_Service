@@ -21,6 +21,7 @@ object Resources {
         val Sell = Icons.Filled.Sell
         val Handshake = Icons.Filled.Handshake
         val Approval = R.drawable.approval
+        val Google = R.drawable.googleicon
         val LogIn = Icons.AutoMirrored.Filled.Login
     }
 

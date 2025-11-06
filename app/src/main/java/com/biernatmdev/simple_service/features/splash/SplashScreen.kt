@@ -25,6 +25,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -32,12 +33,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.times
 import com.biernatmdev.simple_service.R
+import com.biernatmdev.simple_service.features.components.Button
 import com.biernatmdev.simple_service.ui.theme.ColorBtnText
 import com.biernatmdev.simple_service.ui.theme.ColorPrimary
 import com.biernatmdev.simple_service.ui.theme.ColorPrimaryText
 import com.biernatmdev.simple_service.ui.theme.ColorSecondaryText
 import com.biernatmdev.simple_service.ui.theme.ColorSurface
-import com.biernatmdev.simple_service.ui.theme.FontSize.EXTRA_MEDIUM
 import com.biernatmdev.simple_service.ui.theme.FontSize.LARGE
 import com.biernatmdev.simple_service.ui.theme.FontSize.SEMI_LARGE
 import com.biernatmdev.simple_service.ui.theme.Resources.Icon.Handshake
@@ -48,6 +49,7 @@ import com.biernatmdev.simple_service.ui.theme.momoFont
 @Preview(showBackground = true)
 fun SplashScreen() {
     val scale = remember { Animatable(0f) }
+
     LaunchedEffect(
         key1 = true,
         block = {
@@ -98,46 +100,7 @@ fun SplashScreen() {
             lineHeight = 1.2 * LARGE
         )
         Spacer(Modifier.height(100.dp))
-        SplashButton(onClick = {})
-    }
-}
-
-@Composable
-fun SplashButton(
-    modifier: Modifier = Modifier,
-    backgroundColor: Color = ColorPrimary,
-    onClick: () -> Unit
-) {
-    Surface(
-        modifier = Modifier
-            .fillMaxWidth(),
-        shape = RoundedCornerShape(22.dp),
-        color = backgroundColor
-    ) {
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp, 16.dp, 32.dp, 16.dp),
-            contentAlignment = Alignment.Center
-        ) {
-            Text(
-                text = stringResource(R.string.splash_btn_text),
-                color = ColorBtnText,
-                fontFamily = momoFont(),
-                fontSize = SEMI_LARGE,
-                fontWeight = FontWeight.Normal,
-                textAlign = TextAlign.Center
-            )
-            Spacer(Modifier.width(24.dp))
-            Icon(
-                imageVector = LogIn,
-                contentDescription = "Log in",
-                tint = ColorBtnText,
-                modifier = Modifier
-                    .size(32.dp)
-                    .align(Alignment.CenterEnd)
-            )
-        }
+        Button(onClick = {}, imageVector = LogIn)
     }
 }
 
