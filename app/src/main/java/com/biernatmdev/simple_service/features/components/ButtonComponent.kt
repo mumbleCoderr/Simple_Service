@@ -32,6 +32,7 @@ fun Button(
     backgroundColor: Color = ColorPrimary,
     imageVector: ImageVector? = null,
     painterResource: Int? = null,
+    btnText: String,
     onClick: () -> Unit
 ) {
     Surface(
@@ -47,7 +48,7 @@ fun Button(
             contentAlignment = Alignment.Center
         ) {
             Text(
-                text = stringResource(R.string.splash_btn_text),
+                text = btnText,
                 color = ColorBtnText,
                 fontFamily = momoFont(),
                 fontSize = SEMI_LARGE,

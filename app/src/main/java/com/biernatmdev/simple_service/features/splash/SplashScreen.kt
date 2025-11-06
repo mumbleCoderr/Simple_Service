@@ -100,7 +100,11 @@ fun SplashScreen() {
             lineHeight = 1.2 * LARGE
         )
         Spacer(Modifier.height(100.dp))
-        Button(onClick = {}, imageVector = LogIn)
+        Button(
+            onClick = {},
+            imageVector = LogIn,
+            btnText = stringResource(R.string.splash_btn_text)
+        )
     }
 }
 
