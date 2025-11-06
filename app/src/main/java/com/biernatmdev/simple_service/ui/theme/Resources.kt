@@ -11,18 +11,21 @@ import androidx.compose.material.icons.filled.Construction
 import androidx.compose.material.icons.filled.Handshake
 import androidx.compose.material.icons.filled.Login
 import androidx.compose.material.icons.filled.Sell
+import androidx.compose.material.icons.outlined.Campaign
+import androidx.compose.material.icons.outlined.Construction
+import androidx.compose.material.icons.outlined.Sell
 import com.biernatmdev.simple_service.R
 
 object Resources {
 
     object Icon {
-        val Construction = Icons.Filled.Construction
-        val Campaign = Icons.Filled.Campaign
-        val Sell = Icons.Filled.Sell
+        val Construction = Icons.Outlined.Construction
+        val Campaign = Icons.Outlined.Campaign
+        val Sell = Icons.Outlined.Sell
         val Handshake = Icons.Filled.Handshake
+        val LogIn = Icons.AutoMirrored.Filled.Login
         val Approval = R.drawable.approval
         val Google = R.drawable.googleicon
-        val LogIn = Icons.AutoMirrored.Filled.Login
     }
 
     object Image {
